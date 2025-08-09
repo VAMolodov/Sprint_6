@@ -1,10 +1,9 @@
 import pytest
 from selenium import webdriver
-#from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.firefox.options import Options
-from data import *
+from curl import *
 
-@pytest.fixture()
+@pytest.fixture(scope="function")
 def driver():
     options = Options()
     options.add_argument ("--window-size=1200,600")
