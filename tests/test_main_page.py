@@ -13,6 +13,5 @@ class TestFAQ:
         main_page.scroll_to_section_faq()
         # Act
         main_page.click_on_question_section_faq(faq_questions_number)
-        # main_page.wait_for_card_list()
         # Assert
         assert main_page.check_text_answer_to_section_faq(faq_answer_number,expected_text)

@@ -35,3 +35,12 @@ class BasePage:
     @allure.step("Подождать и проверить, что атрибут элемента содержит текст")
     def wait_for_attribute(self, locator, attribute, value, timeout=10):
         return WebDriverWait(self.driver, timeout).until(EC.text_to_be_present_in_element_attribute(locator, attribute, value))   
+    
+    @allure.step("Ожидание смены URL с 'about:blank'")
+    def wait_until_not_about_blank(self, time=10):
+        return WebDriverWait(self.driver, time).until_not(EC.url_to_be('about:blank'))
+    
+    @allure.step('Получить заголовок страницы')
+    def get_page_title(self, locator):
+        WebDriverWait(self.driver, 6).until(EC.presence_of_element_located(locator))
+        return self.driver.title

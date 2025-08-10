@@ -32,3 +32,15 @@ class MainPage(BasePage):
         answer_number_locator = MainPageLocators.faq_answer_number(faq_answer_number)
         actual_text = self.get_text_on_element(answer_number_locator)
         return actual_text == expected_text
+    
+    @allure.step('Переключиться на вкладку Дзена')
+    def switch_window(self):
+        self.driver.switch_to.window(self.driver.window_handles[1])
+
+
+    @allure.step("Получение титла Дзен")
+    def get_page_title_dzen(self):
+        actual_title = self.get_page_title(MainPageLocators.title_of_page)
+        return actual_title
+
+    

@@ -18,8 +18,6 @@ class MainPageLocators :
     # заголовок секции Вопросы о важном
     important_questions_section = (By.XPATH, '//div[@class = "Home_SubHeader__zwi_E"] [text() = "Вопросы о важном"]')
 
-    # локатор текста ответов
-    #text_answer_faq = (By.XPATH, '//*[@id="accordion__panel-3"]')
     
     # метод формирует локатор для вопросов faq
     @staticmethod
@@ -30,5 +28,8 @@ class MainPageLocators :
     @staticmethod
     def faq_answer_number(answer_number):
         return (By.CSS_SELECTOR, f"div[id='accordion__panel-{answer_number}'] p")
-       # return [By.XPATH, f".//div[@class='accordion__panel' and @id='accordion__panel-{question_number}']/p"]
+    
+    # локатор для получения заголовка страницы
+    title_of_page = (By.TAG_NAME, 'title')
+      
     
