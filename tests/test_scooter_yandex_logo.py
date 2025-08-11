@@ -5,6 +5,7 @@ from page_objects.main_page import MainPage
 
 class TestScooterYandexLogo:
     @allure.title("Тест логотипа Самоката")
+    @allure.description('Проверяте что при клике на логотип Самоката попадешь на главную страницу')
     def test_logo_scooter(self, driver):
         # Arrange
         main_page = MainPage(driver)
@@ -15,6 +16,7 @@ class TestScooterYandexLogo:
         assert driver.current_url == main_site 
 
     @allure.title("тест логотипа Яндекса")
+    @allure.description('Проверяет что если кликнуть на логотип Яндекса, в новом окне через редирект откроется главная страница Дзена')
     def test_logo_yandex(self, driver):
         # Arrange
         main_page = MainPage(driver)

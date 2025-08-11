@@ -1,6 +1,8 @@
 from selenium.webdriver.common.by import By
 
 class MainPageLocators :
+    # кнопка принять куки
+    cookie_accept = (By.CSS_SELECTOR, "button.App_CookieButton__3cvqF#rcc-confirm-button")
     # кнопка Заказать в заголовкке
     button_order_header = (By.XPATH, '//div[@class = "Header_Nav__AGCXC"]/button[text() = "Заказать"]')
 

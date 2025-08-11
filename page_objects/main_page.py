@@ -4,9 +4,17 @@ from locators.main_page_locators import MainPageLocators
 
 class MainPage(BasePage):
 
-    @allure.step("Кликнуть по кнопке Заказать")
+    @allure.step('Принять куки')
+    def click_cookie_accept(self):
+        return self.click_on_element(MainPageLocators.cookie_accept)
+
+    @allure.step("Кликнуть по кнопке Заказать в звголовке ")
     def click_on_order(self):
-        self.click_on_element(MainPageLocators.button_order_header)  
+        self.click_on_element(MainPageLocators.button_order_header) 
+
+    @allure.step("Кликнуть по кнопке Заказать под разделом Как это работает ")
+    def click_on_order_midll(self):
+        self.click_on_element(MainPageLocators.button_order_middl) 
 
     @allure.step("Кликнуть по логотипу Самоката")
     def click_on_logo_scooter(self):
