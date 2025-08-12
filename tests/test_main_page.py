@@ -1,0 +1,19 @@
+import allure
+import pytest
+
+from data import *
+from page_objects.main_page import MainPage
+
+class TestFAQ:
+    @allure.title("Тест выпадающего списка ответов в разделе «Вопросы о важном»")
+    @allure.description('В секции Вопросы о важном , кликает на вопрос и сравнивает ответ')
+    @pytest.mark.parametrize('faq_questions_number,faq_answer_number, expected_text',Answers.the_answers_text)
+    def test_text_answers(self, driver, faq_questions_number,faq_answer_number, expected_text):
+        # Arrange
+        main_page = MainPage(driver)
+        main_page.click_cookie_accept()
+        main_page.scroll_to_section_faq()
+        # Act
+        main_page.click_on_question_section_faq(faq_questions_number)
+        # Assert
+        assert main_page.check_text_answer_to_section_faq(faq_answer_number,expected_text)
