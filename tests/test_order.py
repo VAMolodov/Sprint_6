@@ -20,5 +20,6 @@ class TestOrder:
         order_page.filling_user_data(test_data)
         order_page.filling_order_data(test_data)
         order_page.place_an_order()
+        text_successful_order_creation = order_page.get_text_successful_order_creation()
         # Assert
-        assert 'Заказ оформлен' in order_page.get_text_successful_order_creation()
+        assert DataExpectedResponses.order_ready in text_successful_order_creation

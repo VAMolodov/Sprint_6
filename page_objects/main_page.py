@@ -1,4 +1,5 @@
 import allure
+from curl import *
 from page_objects.base_page import BasePage
 from locators.main_page_locators import MainPageLocators
 
@@ -8,7 +9,7 @@ class MainPage(BasePage):
     def click_cookie_accept(self):
         return self.click_on_element(MainPageLocators.cookie_accept)
 
-    @allure.step("Кликнуть по кнопке Заказать в звголовке ")
+    @allure.step("Кликнуть по кнопке Заказать в зaголовке ")
     def click_on_order(self):
         self.click_on_element(MainPageLocators.button_order_header) 
 
@@ -42,8 +43,8 @@ class MainPage(BasePage):
         return actual_text == expected_text
     
     @allure.step('Переключиться на вкладку Дзена')
-    def switch_window(self):
-        self.driver.switch_to.window(self.driver.window_handles[1])
+    def switch_window_dzen(self):
+        self.switch_window()
 
 
     @allure.step("Получение титла Дзен")
@@ -51,4 +52,7 @@ class MainPage(BasePage):
         actual_title = self.get_page_title(MainPageLocators.title_of_page)
         return actual_title
 
-    
+    @allure.step("Получение адреса главной страницы Самоката")
+    def get_url_head_page_scooter(self):
+        actual_url = self.get_page_url()
+        return actual_url

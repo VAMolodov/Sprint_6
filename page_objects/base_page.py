@@ -1,4 +1,5 @@
 import allure
+from curl import *
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -44,3 +45,11 @@ class BasePage:
     def get_page_title(self, locator):
         WebDriverWait(self.driver, 6).until(EC.presence_of_element_located(locator))
         return self.driver.title
+    
+    @allure.step('Переключение между вкладками')
+    def switch_window(self):
+        self.driver.switch_to.window(self.driver.window_handles[1])
+
+    @allure.step('Получить адрес страницы')
+    def get_page_url(self):
+        return self.driver.current_url
