@@ -1,7 +1,0 @@
-{
-    "python.analysis.extraPaths": [
-        "./locators",
-        "./tests/tests_",
-        "./page_objects"
-    ]
-}
